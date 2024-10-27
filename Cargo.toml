@@ -1,0 +1,21 @@
+[package]
+name = "alpix"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[dependencies]
+async-recursion = "1.1.1"
+clap = { version = "4.5.20", features = ["derive"] }
+flate2 = "1.0.34"
+reqwest = { version = "0.12.8", default-features = false, features = ["rustls-tls", "stream", "http2", "blocking"] }
+tar = "0.4.42"
+tokio = { version = "1.41.0", features = ["macros", "rt-multi-thread"] }
+walkdir = "2.5.0"
+zstd = "0.13.2"
